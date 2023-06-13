@@ -28,7 +28,7 @@ get_header();
 
 	<main id="primary" class="site-main container mx-auto min-h-screen">
 
-        <div class="mt-4 mb-3">
+        <div class="mt-4">
             <?php echo do_shortcode( "[wd_asp elements='search,results' ratio='100%,100%' id=1]" ); ?>
         </div>
 
