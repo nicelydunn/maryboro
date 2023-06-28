@@ -11,7 +11,7 @@
 
 ?>
 
-<div class="container mx-4 md:mx-auto mt-16">
+<div class="container px-4 md:mx-auto mt-16">
     <div class="flex flex-wrap justify-center md:justify-between gap-4">
         <div><img src="<?php echo get_template_directory_uri(); ?>/images/logo-ontario.png" alt="" class="h-16 w-auto object-cover"></div>
         <div><img src="<?php echo get_template_directory_uri(); ?>/images/logo-canada-funded-by-csrf-en.png" class="h-16 w-auto object-cover" alt=""></div>

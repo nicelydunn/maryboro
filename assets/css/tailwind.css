@@ -1444,12 +1444,6 @@ video {
 
   
 
-.mb-3 {
-  margin-bottom: 0.75rem;
-}
-
-  
-
 .block {
   display: block;
 }
@@ -1602,6 +1596,12 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+  
+
+.h-\[80vh\] {
+  height: 80vh;
 }
 
   
@@ -2942,6 +2942,11 @@ video {
 
   .md\:p-0 {
     padding: 0px;
+  }
+
+  .md\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
   .md\:pr-4 {
