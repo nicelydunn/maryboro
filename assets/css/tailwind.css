@@ -1582,6 +1582,12 @@ video {
 
   
 
+.h-\[80vh\] {
+  height: 80vh;
+}
+
+  
+
 .h-auto {
   height: auto;
 }
@@ -1600,8 +1606,20 @@ video {
 
   
 
-.h-\[80vh\] {
-  height: 80vh;
+.h-\[100vh\] {
+  height: 100vh;
+}
+
+  
+
+.h-1\/2 {
+  height: 50%;
+}
+
+  
+
+.h-\[90vh\] {
+  height: 90vh;
 }
 
   
@@ -1752,6 +1770,12 @@ video {
 
 .items-start {
   align-items: flex-start;
+}
+
+  
+
+.items-end {
+  align-items: flex-end;
 }
 
   

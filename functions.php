@@ -163,7 +163,7 @@ add_action( 'widgets_init', 'maryboro_widgets_init' );
  */
 function maryboro_scripts() {
 	wp_enqueue_style( 'maryboro-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_enqueue_style( 'tailwind', get_stylesheet_directory_uri() . '/assets/css/tailwind.css', array(), '2.5.4', 'all' );
+	wp_enqueue_style( 'tailwind', get_stylesheet_directory_uri() . '/assets/css/tailwind.css', array(), '2.6.6s', 'all' );
 	wp_enqueue_style( 'slick', '//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css' );
 	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css2?family=Roboto:wght@300;400;900&display=swap' );
 	wp_style_add_data( 'maryboro-style', 'rtl', 'replace' );

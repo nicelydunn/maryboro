@@ -52,12 +52,15 @@ get_header();
             <?php endif; ?>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
             <?php $gallery_array = array(); ?>
+            <?php $photo_caption_array = array(); ?>
 
 			<?php while ( $query->have_posts() ) : $query->the_post();  ?>
                 <?php 
                     $gallery_post_id = get_the_id();
                     $gallery_image = get_the_post_thumbnail( $gallery_post_id, 'full', array('class' => 'h-full w-full object-contain'));
-                    array_push( $gallery_array, '<div class="flex content-center" data-gallery="' . $gallery_post_id . '">' . $gallery_image . '</div>');  
+                    $gallery_caption = get_the_post_thumbnail_caption( $gallery_post_id );
+                    $photo_caption_array[] = array( $gallery_post_id, $gallery_image, $gallery_caption );
+                    
                     if( have_rows('photo_photos') ):
                         while( have_rows('photo_photos') ) : the_row();
                             if( get_sub_field('photos_image') ) : 
@@ -65,8 +68,9 @@ get_header();
                                 $size = 'full';
                                 if( $image ) {
                                     $gallery_image = wp_get_attachment_image( $image, $size, "", array( "class" => "h-full w-full object-contain" ) );
+                                    $gallery_caption = wp_get_attachment_caption( $image ); 
                                 }
-                                array_push( $gallery_array, '<div class="flex content-center" data-gallery="' . $gallery_post_id . '">' . $gallery_image . '</div>'); 
+                                $photo_caption_array[] = array( $gallery_post_id, $gallery_image, $gallery_caption );
                             endif;
                         endwhile;
                     endif;
@@ -106,11 +110,26 @@ get_header();
 	<div id="close-modal" class="absolute top-4 right-4 z-50 flex align-middle h-12 w-12 hover:cursor-pointer">
 	<svg xmlns="http://www.w3.org/2000/svg" class="text-white" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
 	</div>
-	<div class="js-gallery-photos h-full w-full"></div>
+	<div class="js-gallery-photos h-screen w-full relative"></div>
     <div class="hidden">
-		<?php foreach($gallery_array as $gallery): ?>
-			<?php echo $gallery; ?>
-		<?php endforeach; ?>
+		
+        <?php foreach( $photo_caption_array as $photo_caption ) : ?>
+            <?php
+                $id = $photo_caption[0];
+                $image = $photo_caption[1];
+                $caption = $photo_caption[2];
+                $html = '<div class="flex content-center" data-gallery="' . $id . '">';
+                $html .= $image;
+                if ( $caption != "" ) :
+                    $html .= '<div class="absolute flex w-full h-[90vh] justify-center items-end z-50 top-0 left-0">';
+                    $html .= '<div class="max-w-prose text-white text-2xl inline-block bg-gray-900 px-2 py-1 text-center">' . $caption . '</div>';
+                    $html .= '</div>';
+                endif;
+                $html .= '</div>';
+                echo $html;
+            ?>
+        <?php endforeach; ?>
+        
     </div>
 </div>
 <?php
