@@ -15,10 +15,24 @@
 	</header><!-- .entry-header -->
 
     <div class="md:grid md:grid-cols-2 gap-6 mt-8">
-
         <div>
+            <?php 
+                echo the_post_thumbnail( 'large', array(
+                    'class' => 'w-auto h-full object-contain mx-auto'
+                    )
+                ); 
+            ?>
+        </div>
+        <div class="prose-lg mt-8 md:mt-0">
+            <?php echo the_content(); ?>
+        </div>
+    </div>
 
-            <?php if( have_rows('recipes_photos') ) :  // Photos repeater field ?>
+    <div class="md:grid md:grid-cols-2 gap-6 mt-16">
+
+        <?php if( have_rows('recipes_photos') ) :  // Photos repeater field ?>
+
+            <div>
 
                 <div class="js-recipe-photos ">
 
@@ -30,13 +44,9 @@
 
                 </div>
 
-            <?php endif; ?>
+            </div>
 
-            <div class="entry-content wp-block">
-                <?php the_content(); ?>
-            </div><!-- .entry-content -->
-
-        </div>
+        <?php endif; ?>  
 
         <div>
 

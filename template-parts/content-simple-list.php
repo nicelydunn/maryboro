@@ -13,7 +13,7 @@
 
     <a href="<?php echo get_permalink(); ?>">
         <div class="relative pb-16/9 overflow-hidden">
-            <?php the_post_thumbnail('medium', ['class' => 'absolute h-full w-full object-cover opacity-90 hover:opacity-100'],''); ?>  
+            <?php the_post_thumbnail('large', ['class' => 'absolute h-full w-full object-cover opacity-90 hover:opacity-100'],''); ?>  
         </div> 
 
         <header class="entry-header px-4">  
